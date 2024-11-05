@@ -16,6 +16,7 @@ header {
     background-color: #1a1a1a;
     padding: 15px 20px;
     color: #fff;
+    box-shadow: 2px ;
 }
 
 header .logo {
