@@ -12,11 +12,18 @@ body {
     scrollbar-width: 2px;
 }
 
+main {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
 header {
     background-color: #1a1a1a;
     padding: 15px 20px;
     color: #fff;
-    box-shadow: 2px ;
 }
 
 header .logo {
@@ -52,15 +59,31 @@ nav {
 }
 
 #searchBar {
-    margin-left: 20px;
-    padding: 5px;
-    border: none;
-    border-radius: 5px;
+    width: 30%;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url(icons/search-icon.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
 }
 
 #artigos-recentes {
     padding: 20px;
     background-color: #fff;
+    gap: 20px;
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+    max-width: 1200px;
+    box-sizing: border-box;
+}
+
+#artigos-recentes h2{
+    padding: 0 0 2rem 0;
 }
 
 .articles-grid {
@@ -85,11 +108,31 @@ nav {
 .article-card img {
     width: 100%;
     border-radius: 5px;
+    height: 200px;
+    object-fit: contain;
 }
 
 .article-card a {
     color: #333;
     text-decoration: none;
+}
+
+#load-more {
+    width: 15%;
+    padding: 10px;
+    margin-top: 30px;
+    min-width: 150px;
+    max-width: 300px;
+    border-radius: 10px;
+    background-color: #fff;
+    border: #1a1a1a 2px solid;
+    transition-duration: 0.4s;
+    box-shadow: 4px 5px 3px rgba(0, 0, 0, 0.1);
+}
+
+#load-more:hover {
+    background-color: #333;
+    color: #fff;
 }
 
 footer {
@@ -116,12 +159,11 @@ footer .social-links a:hover {
     }
 
     header .menu li {
-        margin-bottom: 10px;
+        display: none;
     }
 
     #searchBar {
-        margin-top: 10px;
-        width: 100%;
+        display: none;
     }
 }
 

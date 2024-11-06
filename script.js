@@ -2,7 +2,7 @@ let currentArticleCount = 0;
 let allArticles = []; 
 const apiKey = '9976c07c18ab4f9c86b82366e5a8dd05'; 
 
-async function fetchNews() {
+async function fetchRecentNews() {
     try {
         const response = await fetch(`https://newsapi.org/v2/everything?q=tech&from=2024-10-05&sortBy=publishedAt&language=pt&apiKey=${apiKey}`);
         
@@ -15,9 +15,10 @@ async function fetchNews() {
 
         if (data.articles && data.articles.length > 0) {
             
-            allArticles = data.articles.filter(article => article.urlToImage && article.description);
+            allArticles = data.articles.filter(article => article.urlToImage && article.description && article.title);
             currentArticleCount = 0; 
-            loadMoreArticles(); 
+            loadMoreArticles()
+
         } else {
             document.getElementById('newsContainer').innerHTML = '<p>Nenhuma notícia disponível.</p>';
         }
@@ -27,19 +28,28 @@ async function fetchNews() {
 }
 
 function calculateCardsToLoad() {
-    const containerWidth = document.getElementById('newsContainer').clientWidth; 
-    const cardWidth = 280; 
+    const newsContainer = document.getElementById('newsContainer');
+    const containerWidth = newsContainer.clientWidth; 
+    const cardWidth = 250; 
     const gap = 20; 
-    const cardsPerRow = Math.floor((containerWidth + gap) / (cardWidth + gap)); 
+    const cardsPerRow = Math.floor(containerWidth / (cardWidth + gap)); 
 
-    return Math.min(cardsPerRow * 3, allArticles.length - currentArticleCount);
+    
+    const effectiveCardsPerRow = Math.max(cardsPerRow, 1);
+
+    console.log(`Largura do container: ${containerWidth}`);
+    console.log(`Cartões por linha: ${effectiveCardsPerRow}`);
+
+    return Math.min(effectiveCardsPerRow * 3, allArticles.length - currentArticleCount);
 }
 
 function loadMoreArticles() {
     const newsContainer = document.getElementById('newsContainer');
     const articlesToLoad = calculateCardsToLoad(); 
 
-    if (articlesToLoad <= 0) return; 
+    if (articlesToLoad <= 0) {
+        return;
+    } 
 
     const articlesToShow = allArticles.slice(currentArticleCount, currentArticleCount + articlesToLoad); 
 
@@ -59,12 +69,18 @@ function loadMoreArticles() {
     });
 
     currentArticleCount += articlesToLoad; 
+
+    disableButton()
 }
 
-window.addEventListener('scroll', () => {
-    if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 100) { 
-        loadMoreArticles();
-    }
-});
+function disableButton(){
+    const button = document.getElementById("load-more")
 
-document.addEventListener('DOMContentLoaded', fetchNews);
+    if (currentArticleCount >= allArticles.length) {
+        button.style.opacity = 0.6
+        button.style.cursor = "not-allowed"
+        button.disable = true
+    }
+}
+
+document.addEventListener('DOMContentLoaded', fetchRecentNews);
