@@ -9,24 +9,33 @@
 </head>
 <body>
     <header>
-        <nav>
-            <div class="logo"><a href="index.html">TechNews</a></div>
-            <div class="search-container">
-                <input type="search" placeholder="Buscar..." id="searchBar">
-                <button onclick="fetchRecentNews()"><i class="fas fa-search"></i></button>
-            </div>
+        <nav>   
             <ul class="menu">
                 <li><a href="/index.html">Início</a></li>
-                <li><a href="/destaques/destaques.html">Destaques</a></li>
-                <li><a href="/categorias/categorias.html">Categorias</a></li>
-                <li><a href="/contato/contato.html">Contato</a></li>
+                <li><a href="/contato.html">Contato</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)">Categorias <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="">Recentes</a>
+                        <a href="">Populares</a>
+                        <a href="">Destaques</a>
+                    </div>
+                </li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section id="artigos-destacados">
-            <h2>Artigos Destacados</h2>
+        <section id="hero">
+            <img src="images/logo.png" alt="">
+        </section>
+
+        <section id="artigos-recentes">
+            <div class="search-container">
+                <input type="search" placeholder="Buscar..." id="searchBar">
+                <button onclick="fetchRecentNews()"><i class="fas fa-search"></i></button>
+            </div>
+            <h2>Artigos Recentes</h2>
             <div class="articles-grid" id="newsContainer"></div>
             <button type="button" onclick="loadMoreArticles()" id="load-more">Carregar mais...</button>
         </section>

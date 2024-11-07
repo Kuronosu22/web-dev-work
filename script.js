@@ -1,11 +1,12 @@
 let currentArticleCount = 0; 
 let allArticles = []; 
-const apiKey = '9976c07c18ab4f9c86b82366e5a8dd05';
+const apiKey = 'c3dde89b780f4d358d227feb40ce325d';
 
 async function fetchRecentNews() {
     try {
-        const filter = document.getElementById("searchBar").value.toLowerCase()
-        const response = await fetch(`https://newsapi.org/v2/everything?q=${filter} OR tech&from=2024-10-05&sortBy=publishedAt&language=pt&apiKey=${apiKey}`);
+        document.getElementById('newsContainer').innerHTML = '';
+        var filter = document.getElementById("searchBar").value.toLowerCase()
+        const response = await fetch(`https://newsapi.org/v2/everything?q=${filter  || "tech"} AND tech&sortBy=publishedAt&language=pt&apiKey=${apiKey}`);
         
         if (!response.ok) {
             throw new Error('Erro na resposta da API: ' + response.status);

@@ -2,6 +2,7 @@ body, h1, h2, h3, p, ul, li, a, img {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    list-style: none;
 }
 
 body {
@@ -9,7 +10,11 @@ body {
     background-color: #f4f4f4;
     color: #333;
     line-height: 1.6;
-    scrollbar-width: 2px;
+    min-width: 400px;
+}
+
+body::-webkit-scrollbar {
+    display: none;
 }
 
 main {
@@ -22,7 +27,7 @@ main {
 
 header {
     background-color: #1a1a1a;
-    padding: 15px 20px;
+    padding: 10px 20px;
     color: #fff;
 }
 
@@ -39,23 +44,68 @@ header .logo a {
 header .menu {
     list-style: none;
     display: flex;
-    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    gap: 20%;
+    font-size: 20px;
 }
 
 header .menu li a {
     color: #fff;
     text-decoration: none;
     transition: color 0.3s;
+    display: block;
+    padding: 10px;
+    min-width: 180px;
+    text-align: center;
 }
 
 header .menu li a:hover {
     color: #ffa500;
 }
 
+.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #1a1a1a;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    padding: 10px 0;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown a i{
+    font-size: 15px;
+}
+
 nav {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+}
+
+#hero {
+    background: linear-gradient(
+        #858890 0%,
+        #545C65 100%
+        );
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#hero img{
+    width: 400px;
 }
 
 #searchBar {
@@ -64,7 +114,7 @@ nav {
     border: 2px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
-    background-color: white;
+    background-color: #fff;
     padding: 12px 20px 12px 20px;
 }
 
@@ -77,7 +127,7 @@ nav {
     box-sizing: border-box;
     border: 2px solid #ccc;
     border-radius: 4px;
-    background-color: white;
+    background-color: #fff;
     padding: 12px 20px 12px 20px;
     transition-duration: 0.3s;
     cursor: pointer;
@@ -99,7 +149,7 @@ nav {
 }
 
 #artigos-recentes h2{
-    padding: 0 0 2rem 0;
+    padding: 1rem 0 1rem 0;
 }
 
 .articles-grid {
@@ -113,12 +163,13 @@ nav {
     padding: 15px;
     border-radius: 10px;
     box-shadow: 11px 13px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
+    transition: transform 0.5s;
     word-wrap: break-word;
+    border: #858890 solid 2px;
 }
 
 .article-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px);
 }
 
 .article-card img {
@@ -177,18 +228,11 @@ footer .social-links a:hover {
     header .menu li {
         display: none;
     }
-
-    #searchBar {
-        display: none;
-    }
 }
 
 @media (max-width: 768px) {
     .articles-grid {
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    }
-    #searchBar {
-        display: none;
     }
 }
 
