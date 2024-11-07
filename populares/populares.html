@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechNews - Recentes</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>TechNews - Populares</title>
+    <link rel="stylesheet" href="/styles.css">
     <script src="https://kit.fontawesome.com/dd0a833d45.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -16,9 +16,9 @@
                 <li class="dropdown">
                     <a href="javascript:void(0)">Categorias <i class="fas fa-chevron-down"></i></a>
                     <div class="dropdown-content">
-                        <a href="/recentes.html">Recentes</a>
-                        <a href="/populares.html">Populares</a>
-                        <a href="/destaques.html">Destaques</a>
+                        <a href="/recentes/recentes.html">Recentes</a>
+                        <a href="/populares/populares.html">Populares</a>
+                        <a href="/destaques/destaques.html">Destaques</a>
                     </div>
                 </li>
             </ul>
@@ -27,15 +27,15 @@
 
     <main>
         <section id="hero">
-            <img src="images/logo.png" alt="TechNews logo">
+            <img src="/images/logo.png" alt="TechNews logo">
         </section>
 
         <section id="artigos-recentes">
             <div class="search-container">
                 <input type="search" placeholder="Buscar..." id="searchBar">
-                <button onclick="fetchRecentNews()"><i class="fas fa-search"></i></button>
+                <button onclick="fetchPopularNews()"><i class="fas fa-search"></i></button>
             </div>
-            <h2>Artigos Recentes</h2>
+            <h2>Artigos Populares</h2>
             <div class="articles-grid" id="newsContainer"></div>
             <button type="button" onclick="loadMoreArticles()" id="load-more">Carregar mais...</button>
         </section>
@@ -50,6 +50,6 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="populares.js"></script>
 </body>
 </html>
