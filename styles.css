@@ -6,8 +6,8 @@ body, h1, h2, h3, p, ul, li, a, img {
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #fff;
     color: #333;
     line-height: 1.6;
     min-width: 400px;
@@ -94,10 +94,6 @@ nav {
 }
 
 #hero {
-    background: linear-gradient(
-        #858890 0%,
-        #545C65 100%
-        );
     width: 100%;
     display: flex;
     align-items: center;
@@ -106,6 +102,7 @@ nav {
 
 #hero img{
     width: 400px;
+    user-select: none;
 }
 
 #searchBar {
@@ -139,13 +136,14 @@ nav {
 
 #artigos-recentes {
     padding: 20px;
-    background-color: #fff;
+    background-color: #e0e0e0;
     gap: 20px;
     text-align: center;
     width: 80%;
     margin: 0 auto;
     max-width: 1200px;
     box-sizing: border-box;
+    border-radius: 20px;
 }
 
 #artigos-recentes h2{
@@ -162,7 +160,7 @@ nav {
     background-color: #f9f9f9;
     padding: 15px;
     border-radius: 10px;
-    box-shadow: 11px 13px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 8px 7px 2px 3px rgba(0, 0, 0, 0.1);
     transition: transform 0.5s;
     word-wrap: break-word;
     border: #858890 solid 2px;
@@ -177,6 +175,7 @@ nav {
     border-radius: 5px;
     height: 200px;
     object-fit: contain;
+    user-select: none;
 }
 
 .article-card a {
@@ -192,14 +191,13 @@ nav {
     max-width: 300px;
     border-radius: 10px;
     background-color: #fff;
-    border: #1a1a1a 2px solid;
+    border: #ffa500 2px solid;
     transition-duration: 0.4s;
     box-shadow: 4px 5px 3px rgba(0, 0, 0, 0.1);
 }
 
 #load-more:hover {
-    background-color: #333;
-    color: #fff;
+    background-color: #ffa500;
 }
 
 footer {
@@ -240,4 +238,24 @@ footer .social-links a:hover {
     .articles-grid {
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     }
+}
+
+/* ------------------------------------------------------------------------------------------------------ */
+
+.intro {
+    display: inline-block;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.intro a {
+    font-size: 30px;
+    text-decoration: none;
+    color: #ffa500;
+}
+
+.intro img {
+    width: 200px;
 }

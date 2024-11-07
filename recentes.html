@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechNews - Recentes</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/dd0a833d45.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <nav>   
+            <ul class="menu">
+                <li><a href="/index.html">Início</a></li>
+                <li><a href="/contato.html">Contato</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)">Categorias <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="/recentes.html">Recentes</a>
+                        <a href="/populares.html">Populares</a>
+                        <a href="/destaques.html">Destaques</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <img src="images/logo.png" alt="TechNews logo">
+        </section>
+
+        <section id="artigos-recentes">
+            <div class="search-container">
+                <input type="search" placeholder="Buscar..." id="searchBar">
+                <button onclick="fetchRecentNews()"><i class="fas fa-search"></i></button>
+            </div>
+            <h2>Artigos Recentes</h2>
+            <div class="articles-grid" id="newsContainer"></div>
+            <button type="button" onclick="loadMoreArticles()" id="load-more">Carregar mais...</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 TechNews. Todos os direitos reservados.</p>
+        <div class="social-links">
+            <a href="#">Twitter</a>
+            <a href="#">LinkedIn</a>
+            <a href="#">Instagram</a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
