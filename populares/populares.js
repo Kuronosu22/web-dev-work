@@ -1,6 +1,6 @@
 let currentArticleCount = 0; 
 let allArticles = []; 
-const apiKey = 'c3dde89b780f4d358d227feb40ce325d';
+const apiKey = '9976c07c18ab4f9c86b82366e5a8dd05';
 
 async function fetchPopularNews() {
     try {
