@@ -285,12 +285,12 @@ footer .social-links a:hover {
 
 #call {
     margin: 5px;
-    padding: 5px;
+    padding: 5px 25px;
     color: #ffffff;
     text-decoration: none;
     border-radius: 10px;
-    background-color: #000000;
-    border: #ccc 2px solid;
+    background-color: #333;
+    border: #858890 2px solid;
     transition-duration: 0.4s;
 }
 
