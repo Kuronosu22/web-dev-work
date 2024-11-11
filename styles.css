@@ -55,9 +55,8 @@ header .menu li a {
     color: #fff;
     text-decoration: none;
     transition: color 0.3s;
-    display: block;
     padding: 10px;
-    min-width: 180px;
+    min-width: fit-content;
     text-align: center;
 }
 
@@ -67,6 +66,13 @@ header .menu li a:hover {
 
 .dropdown {
     display: inline-block;
+}
+
+.dropdown a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
 }
 
 .dropdown-content {
@@ -224,6 +230,10 @@ footer .social-links a:hover {
     }
 
     header .menu li {
+        display: contents;
+    }
+
+    .dropdown:hover .dropdown-content {
         display: none;
     }
 }
@@ -240,22 +250,127 @@ footer .social-links a:hover {
     }
 }
 
-/* ------------------------------------------------------------------------------------------------------ */
-
 .intro {
-    display: inline-block;
     height: 100vh;
+    overflow: auto;
+    position: relative;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #ffa500;
+    width: 100%;
+    gap: 3rem;
+    font-size: 20px;
+    text-align: center;
 }
 
-.intro a {
-    font-size: 30px;
+.intro::before {
+    content: "";
+    z-index: -1;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.63), rgba(0, 0, 0, 0.623)),
+      url(images/francesco-vantini-ZavLsrP4CDI-unsplash.jpg);
+    position: fixed;
+    background-attachment: scroll;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    filter: blur(3px) contrast(90%);
+    margin: -10px;
+}
+
+#call {
+    margin: 5px;
+    padding: 5px;
+    color: #ffffff;
     text-decoration: none;
+    border-radius: 10px;
+    background-color: #000000;
+    border: #ccc 2px solid;
+    transition-duration: 0.4s;
+}
+
+#call:hover {
     color: #ffa500;
 }
 
-.intro img {
-    width: 200px;
+@media (max-width: 768px) {
+    .intro {
+        font-size: 16px;
+        gap: 2rem;
+    }
+
+    #call {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .intro {
+        font-size: 14px;
+        gap: 1.5rem;
+    }
+
+    #call {
+        padding: 8px 12px;
+        font-size: 0.8rem;
+    }
+}
+
+input[type=text], input[type=email], select, textarea {
+    width: 100%;
+    padding: 12px; 
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical
+}
+  
+ 
+  input[type=submit] {
+    background-color: #ffa500;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+  
+ 
+  input[type=submit]:hover {
+    background-color: #ac7309;
+}
+
+  textarea {
+    height: 200px;
+}
+
+  #contato {
+    border-radius: 5px;
+    background-color: #e0e0e0;
+    padding: 20px;
+    width: 90%;
+}
+
+.categorias {
+    height: 100vh;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    background-color: #333;
+    color: #ffffff;
+}
+
+.categorias a{
+    color: #ffffff;
+    text-decoration: none;
 }
